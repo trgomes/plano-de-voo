@@ -1,0 +1,98 @@
+<!-- Modal cadastrar voo-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Cadastrar voo</h4>
+            </div>
+            {{voo}}
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="matricula">Número do voo</label>
+                        <input type="text" class="form-control" id="matricula" placeholder="Número do voo" ng-model="voo.numero">
+                    </div>
+                    <div class="form-group">
+                        <label for="matricula">Data</label>
+                        <input type="text" class="form-control" id="matricula" placeholder="Data do voo" ng-model="voo.data">
+                    </div>
+                    <div class="form-group">
+                        <label for="matricula">Hora</label>
+                        <input type="text" class="form-control" id="matricula" placeholder="Hora do voo" ng-model="voo.hora">
+                    </div>
+                    <div class="form-group">
+                        <label for="matricula">Aeronave</label>
+                        <select class="form-control" ng-model="voo.aeronave_id" >
+                            <option value="">Selecione a aeronave</option>
+                            <option ng-repeat="aeronave in aeronaves" value="{{aeronave.id}}"> {{aeronave.matricula}} | {{aeronave.tipo}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="matricula">Origem</label>
+                        <select class="form-control" ng-model="voo.origem_id">
+                            <option value="">Selecione a origem</option>
+                            <option ng-repeat="aeroporto in aeroportos" value="{{aeroporto.id}}"> {{aeroporto.nome}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="matricula">Destino</label>
+                        <select class="form-control" ng-model="voo.destino_id">
+                            <option value="">Selecione o destino</option>
+                            <option ng-repeat="aeroporto in aeroportos" value="{{aeroporto.id}}"> {{aeroporto.nome}}</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary" ng-click="addVoo()">Salvar</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<!-- <div class="row">
+
+    <h3>Cadastrar VOO</h3>
+
+    <form>
+        <div class="form-group">
+            <label for="matricula">Número do voo</label>
+            <input type="text" class="form-control" id="matricula" placeholder="Número do voo" ng-model="voo.numero">
+        </div>
+        <div class="form-group">
+            <label for="matricula">Data</label>
+            <input type="text" class="form-control" id="matricula" placeholder="Data" ng-model="voo.data">
+        </div>
+        <div class="form-group">
+            <label for="matricula">Hora</label>
+            <input type="text" class="form-control" id="matricula" placeholder="Data" ng-model="voo.hora">
+        </div>
+        <div class="form-group">
+            <label for="matricula">Aeronave</label>
+            <select class="form-control" ng-model="voo.aeronave_id">
+                <option value="1">Selecione uma aeronave</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="matricula">Origem</label>
+            <select class="form-control" ng-model="voo.origm_id">
+                <option value="">Selecione a origem</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="matricula">Destino</label>
+            <select class="form-control" ng-model="voo.destino_id">
+                <option value=""> Selecione o destino</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-success" ng-click="addVoo()">Cadastrar</button>
+    </form>
+
+</div> -->

@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="panel panel-info">
+        <div class="panel-heading text-right">
+            <a class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
+                <i class="fa fa-plus"></i> Nova aeronave
+            </a>
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="text-center">#</th>
+                        <th class="text-center">Nome</th>
+                        <th class="text-center"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="3">
+                            <input type="text" class="form-control " ng-model="filter.nome" value="" placeholder="Pesquisar nome..." />
+                        </td>
+                    </tr>
+                    <tr ng-repeat="aeroporto in aeroportos | filter: filter:strict">
+                        <td class="text-center">{{ aeroporto.id }}</td>
+                        <td class="text-center">{{ aeroporto.nome }}</td>
+                        <td class="text-center">
+                            <div class="btn-group">
+                                <a href="/plano-de-voo/public/aeroporto/alterar/{{ aeronave.id }}" class="btn btn-group btn-default btn-sm">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <a href="/plano-de-voo/public/aeroporto/excluir/{{ aeronave.id }}" class="btn btn-group btn-danger btn-sm">
+                                    <i class="fa fa-remove"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

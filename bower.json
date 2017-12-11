@@ -1,0 +1,26 @@
+{
+  "name": "plano-de-voo",
+  "authors": [
+    "trgomes <trtg10@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "bootswatch": "^3.3.7",
+    "animate.css": "^3.5.2",
+    "font-awesome": "^4.7.0",
+    "toastr": "^2.1.3",
+    "angular": "^1.6.7",
+    "angular-route": "^1.6.7"
+  }
+}

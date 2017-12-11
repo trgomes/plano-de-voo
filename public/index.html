@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <base href="/plano-de-voo/public/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Bem vindo ao Curso de AngularJs!">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Planos de voos</title>
+
+    <link rel="stylesheet" href="../bower_components/bootswatch/lumen/bootstrap.css">
+    <link rel="stylesheet" href="../bower_components/animate.css/animate.css">
+    <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../bower_components/toastr/toastr.css" />    
+</head>
+<body>
+    <div ng-include="'pages/pattern/headbar.html'"></div>    
+
+    <div class="container" ng-view></div>
+    
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="../bower_components/toastr/toastr.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+
+    <script src="../app/app.js"></script>
+    <script src="../app/routes.js"></script>
+    <script src="../app/config.js"></script>
+
+    <script src="../app/services/VooService.js"></script>
+    <script src="../app/services/AeronaveService.js"></script>
+    <script src="../app/services/AeroportoService.js"></script>
+    
+    <script src="../app/controllers/VooController.js"></script>
+    <script src="../app/controllers/AeronaveController.js"></script>
+    <script src="../app/controllers/AeroportoController.js"></script>    
+</body>
+</html>

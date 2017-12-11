@@ -1,0 +1,73 @@
+<div class="row">
+    <div class="panel panel-info">
+        <div class="panel-heading text-right">
+            <div class="row">
+                <div class="col-lg-6">
+                    <input type="text" class="form-control input-lg" ng-model="filter.origem" value="" placeholder="Pesquisar aeroporto de origem..."/>
+                </div>
+                <div class="col-lg-6">
+                    <a class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
+                        <i class="fa fa-plus"></i> Novo voo
+                    </a>
+                </div>
+            </div>
+
+            <!-- <a class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
+                <i class="fa fa-plus"></i> Novo voo
+            </a> -->
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th class="text-center">Número</th>
+                        <th class="text-center">Matrícula da Aeronave</th>
+                        <th class="text-center">Data</th>
+                        <th class="text-center">Horário do Voo</th>
+                        <th class="text-center">Aeroporto de Origem</th>
+                        <th class="text-center">Aeroporto de Destino</th>
+                        <th class="text-center"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <tr>
+                        <td colspan="4">
+                            <input type="text" class="form-control " ng-model="filter.origem" value="" placeholder="Pesquisar aeroporto de origem..."
+                            />
+                        </td>
+                        <td colspan="4">
+
+                        </td>
+                    </tr> -->
+                    <tr ng-repeat="voo in voos | filter: filter:strict">
+                        <td>{{ voo.id }}</td>
+                        <td class="text-center">{{ voo.numero }}</td>
+                        <td class="text-center">{{ voo.matricula }}</td>
+                        <td class="text-center">{{ voo.data | date: "dd/MM/yyyy" }} </td>
+                        <td class="text-center">{{voo.hora}}</td>
+                        <td class="text-center">{{ voo.origem }}</td>
+                        <td class="text-center">{{ voo.destino }}</td>
+                        <td class="text-center">
+                            <div class="btn-group">
+                                <a class="btn btn-group btn-default btn-sm" ng-click="modalEditar(voo)">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <a class="btn btn-group btn-danger btn-sm" ng-click="modalExcluir(voo)">
+                                    <i class="fa fa-remove"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Cadastrar VOO-->
+<div ng-include="'pages/voos/cadastrar.html'"></div>
+<!-- Modal Editar VOO-->
+<div ng-include="'pages/voos/editar.html'"></div>
+<!-- Modal Excluir VOO-->
+<div ng-include="'pages/voos/excluir.html'"></div>

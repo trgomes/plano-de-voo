@@ -1,0 +1,54 @@
+<!-- Modal cadastrar voo-->
+<div class="modal fade" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Editar voo</h4>
+            </div>
+            {{voo}}
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="matricula">Número do voo</label>
+                        <input type="text" class="form-control" id="matricula" placeholder="Número do voo" ng-model="voo.numero">
+                    </div>
+                    <div class="form-group">
+                        <label for="matricula">Data</label>
+                        <input type="text" class="form-control" id="matricula" placeholder="Data do voo" ng-model="voo.data">
+                    </div>
+                    <div class="form-group">
+                        <label for="matricula">Hora</label>
+                        <input type="text" class="form-control" id="matricula" placeholder="Hora do voo" ng-model="voo.hora">
+                    </div>
+                    <div class="form-group">
+                        <label for="matricula">Aeronave</label>
+                        <select class="form-control" ng-model="voo.aeronave_id" ng-options="aeronave.matricula + ' ' + aeronave.tipo for aeronave in aeronaves">
+                            <option value="">Selecione a aeronave</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="matricula">Origem</label>
+                        <select class="form-control" ng-model="voo.origem_id" ng-options="aeroporto.nome for aeroporto in aeroportos">
+                            <option value="">Selecione a origem</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="matricula">Destino</label>
+                        <select class="form-control" ng-model="voo.destino_id" ng-options="aeroporto.nome for aeroporto in aeroportos">
+                            <option value="">Selecione o destino</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary" ng-click="updateVoo(voo)">Editar</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
