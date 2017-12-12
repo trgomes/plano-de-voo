@@ -6,7 +6,7 @@
                     <input type="text" class="form-control input-lg" ng-model="filter.origem" value="" placeholder="Pesquisar aeroporto de origem..."/>
                 </div>
                 <div class="col-lg-6">
-                    <a class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
+                    <a class="btn btn-success btn-lg" ng-click="modalCadastrar(voo)">
                         <i class="fa fa-plus"></i> Novo voo
                     </a>
                 </div>
@@ -30,16 +30,7 @@
                         <th class="text-center"></th>
                     </tr>
                 </thead>
-                <tbody>
-                    <!-- <tr>
-                        <td colspan="4">
-                            <input type="text" class="form-control " ng-model="filter.origem" value="" placeholder="Pesquisar aeroporto de origem..."
-                            />
-                        </td>
-                        <td colspan="4">
-
-                        </td>
-                    </tr> -->
+                <tbody>                    
                     <tr ng-repeat="voo in voos | filter: filter:strict">
                         <td>{{ voo.id }}</td>
                         <td class="text-center">{{ voo.numero }}</td>
@@ -50,7 +41,7 @@
                         <td class="text-center">{{ voo.destino }}</td>
                         <td class="text-center">
                             <div class="btn-group">
-                                <a class="btn btn-group btn-default btn-sm" ng-click="modalEditar(voo)">
+                                <a class="btn btn-group btn-default btn-sm" ng-click="modalEditar(voo.id)">
                                     <i class="fa fa-edit"></i>
                                 </a>
                                 <a class="btn btn-group btn-danger btn-sm" ng-click="modalExcluir(voo)">

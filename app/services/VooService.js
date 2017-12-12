@@ -1,6 +1,7 @@
 app.service('VooService', ['$http', function ($http) {
 
-    var baseUri = 'http://localhost:8000/api';
+    
+    var baseUri = "http://localhost:8000/api";
 
     this.getAllVoos = function getAllVoos() {
         return $http({
@@ -27,11 +28,18 @@ app.service('VooService', ['$http', function ($http) {
         });
     }
 
-    this.updateVoo = function updateVoo(vooId, voo) {
+    this.updateVoo = function updateVoo(voo) {
         return $http({
-            method: 'PATCH',
-            url: baseUri + '/voos/' + vooId,
-            data: voo
+            method: 'PUT',
+            url: baseUri + '/voos/' + voo.id,
+            data: {
+                "numero": voo.numero,
+                "data": voo.data,
+                "hora": voo.hora,
+                "aeronave_id": voo.aeronave_id,
+                "origem_id": voo.aeronave_id,
+                "destino_id": voo.destino_id
+            }
         });
     }
 

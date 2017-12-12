@@ -3,7 +3,7 @@ app.controller('VooController', function ($scope, VooService, aeronaves, aeropor
     $scope.aeronaves = aeronaves.data;
     $scope.aeroportos = aeroportos.data;
 
-    $scope.voo = {};
+    $scope.voo = {};    
 
     $scope.getAllVoos = function () {
         VooService.getAllVoos()
@@ -20,8 +20,7 @@ app.controller('VooController', function ($scope, VooService, aeronaves, aeropor
     $scope.addVoo = function () {        
 
         VooService.addVoo($scope.voo)
-            .then(function success(response) {
-                console.log($scope.voo);
+            .then(function success(response) {                
                 toastr.success("Voo cadastrado com sucesso");
                 init();
             },
@@ -31,10 +30,10 @@ app.controller('VooController', function ($scope, VooService, aeronaves, aeropor
     }
 
 
-    $scope.getVoo = function () {
-        VooService.getVoo()
+    $scope.getVoo = function (id) {
+        VooService.getVoo(id)
             .then(function success(response) {
-                $scope.voos = response.data;                
+                $scope.voo = response.data;                
             },
             function error(response) {
                 toastr.warning("Erro ao consultar voo! ");
@@ -54,20 +53,39 @@ app.controller('VooController', function ($scope, VooService, aeronaves, aeropor
     }
 
 
-    function init() {
-        $scope.getAllVoos();        
-        $scope.voo = {};
+    $scope.updateVoo = function (voo) {
+        VooService.updateVoo(voo)
+            .then(function success(response) {
+                toastr.success("Voo alterado com sucesso!");
+                init();
+            },
+            function error(response) {
+                toastr.warning("Erro ao tentar alterar o voo! ");
+            });
     }
 
 
-    $scope.modalEditar = function(voo){        
-        $scope.voo = voo;
+
+    function init() {
+        $scope.getAllVoos();               
+        $scope.voo = {};
+    }
+
+    //Modal
+    $scope.modalEditar = function(id){  
+        $scope.getVoo(id);
+        $scope.origem = $scope.voo.matriula_id;
         angular.element("#modalEditar").modal('show');
     }
 
     $scope.modalExcluir = function(voo){   
-        $scope.voo = voo
+        $scope.voo = voo;
         angular.element("#modalExcluir").modal('show');
+    }
+
+    $scope.modalCadastrar = function(){
+        $scope.voo = {};
+        angular.element("#modalCadastrar").modal('show');
     }
 
     init();
