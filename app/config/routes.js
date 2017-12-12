@@ -7,7 +7,7 @@ app.config(function ($routeProvider, $locationProvider) {
         //Rotas crud voos
         .when('/voos', {
             controller: 'VooController',
-            templateUrl: 'pages/voos/index.html',
+            templateUrl: 'views/voos/index.html',
             resolve: {
                 aeronaves: function (AeronaveService) {
                     return AeronaveService.getAllAeronaves();
@@ -20,25 +20,25 @@ app.config(function ($routeProvider, $locationProvider) {
         .when('/voos/cadastrar', {
             controller: 'VooController',
             controllerAs: 'vc',
-            templateUrl: 'pages/voos/cadastrar.html'
+            templateUrl: 'views/voos/cadastrar.html'
         })
         .when('/voos/alterar/:id', {
             controller: 'VooController',
-            templateUrl: 'pages/voos/alterar.html'
+            templateUrl: 'views/voos/alterar.html'
         })
         .when('/voos/excluir/:id', {
             controller: 'VooController',
-            templateUrl: 'pages/voos/excluir.html'
+            templateUrl: 'views/voos/excluir.html'
         })
         //Rotas crud aeronaves
         .when('/aeronaves', {
             controller: 'AeronaveController',
-            templateUrl: 'pages/aeronaves/index.html'
+            templateUrl: 'views/aeronaves/index.html'
         })
         //Rotas crud aeronaves
         .when('/aeroportos', {
             controller: 'AeroportoController',
-            templateUrl: 'pages/aeroportos/index.html'
+            templateUrl: 'views/aeroportos/index.html'
         })
         .otherwise({
             redirectTo: '/voos'

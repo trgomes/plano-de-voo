@@ -1,7 +1,6 @@
-app.service('VooService', ['$http', function ($http) {
-
+app.service('VooService', ['$http', 'config', function ($http, config) {   
     
-    var baseUri = "http://localhost:8000/api";
+    var baseUri = config.baseUri;
 
     this.getAllVoos = function getAllVoos() {
         return $http({

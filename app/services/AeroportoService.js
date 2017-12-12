@@ -1,6 +1,6 @@
-app.service('AeroportoService', ['$http', function ($http) {
+app.service('AeroportoService', ['$http', 'config', function ($http, config) {
 
-    var baseUri = 'http://localhost:8000/api';
+    var baseUri = config.baseUri;
 
     this.getAllAeroportos = function () {
         return $http({

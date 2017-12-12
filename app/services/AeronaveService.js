@@ -1,6 +1,6 @@
-app.service('AeronaveService', ['$http', function ($http) {
+app.service('AeronaveService', ['$http', 'config', function ($http, config) {
 
-    var baseUri = 'http://localhost:8000/api';
+    var baseUri = config.baseUri;
 
     this.getAllAeronaves = function () {
         return $http({

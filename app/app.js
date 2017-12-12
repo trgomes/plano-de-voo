@@ -4,5 +4,3 @@ var app;
     'use strict';
     app = angular.module('app', ['ngRoute']);
 })();
-
-
