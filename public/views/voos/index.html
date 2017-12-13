@@ -3,7 +3,7 @@
         <div class="panel-heading text-right">
             <div class="row">
                 <div class="col-lg-6">
-                    <input type="text" class="form-control input-lg" ng-model="filter.origem" value="" placeholder="Pesquisar aeroporto de origem..."/>
+                    <input type="search" class="form-control input-lg" ng-model="filter.origem" value="" placeholder="Pesquisar aeroporto de origem..."/>
                 </div>
                 <div class="col-lg-6">
                     <a class="btn btn-success btn-lg" ng-click="modalCadastrar(voo)">
@@ -12,11 +12,9 @@
                 </div>
             </div>
 
-            <!-- <a class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
-                <i class="fa fa-plus"></i> Novo voo
-            </a> -->
         </div>
         <div class="panel-body">
+            {{message}}
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -32,13 +30,13 @@
                 </thead>
                 <tbody>                    
                     <tr ng-repeat="voo in voos | filter: filter:strict">
-                        <td>{{ voo.id }}</td>
-                        <td class="text-center">{{ voo.numero }}</td>
-                        <td class="text-center">{{ voo.matricula }}</td>
+                        <td>{{ voo.id | uppercase }}</td>
+                        <td class="text-center">{{ voo.numero | uppercase }}</td>
+                        <td class="text-center">{{ voo.matricula | uppercase }}</td>
                         <td class="text-center">{{ voo.data | date: "dd/MM/yyyy" }} </td>
-                        <td class="text-center">{{voo.hora}}</td>
-                        <td class="text-center">{{ voo.origem }}</td>
-                        <td class="text-center">{{ voo.destino }}</td>
+                        <td class="text-center">{{ voo.hora }}</td>
+                        <td class="text-center">{{ voo.origem | uppercase }}</td>
+                        <td class="text-center">{{ voo.destino | uppercase }}</td>
                         <td class="text-center">
                             <div class="btn-group">
                                 <a class="btn btn-group btn-default btn-sm" ng-click="modalEditar(voo.id)">

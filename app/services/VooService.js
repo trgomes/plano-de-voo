@@ -18,7 +18,7 @@ app.service('VooService', ['$http', 'config', function ($http, config) {
     }
 
 
-    this.addVoo = function addVoo(voo) {    
+    this.addVoo = function addVoo(voo) {            
         console.log(voo);
         return $http({
             method: 'POST',

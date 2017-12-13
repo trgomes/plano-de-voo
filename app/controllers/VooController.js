@@ -8,11 +8,10 @@ app.controller('VooController', function ($scope, VooService, aeronaves, aeropor
     $scope.getAllVoos = function () {
         VooService.getAllVoos()
             .then(function success(response) {
-                $scope.voos = response.data;
+                $scope.voos = response.data;                
             },
             function error(response) {
-                $scope.message = 'Não foi encontrado nenhum voo';
-                $scope.errorMessage = 'Erro ao recuperar voos';
+                $scope.message = 'Não foi encontrado nenhum voo cadastrado na base de dados.';                
             });
     }
    
@@ -25,7 +24,7 @@ app.controller('VooController', function ($scope, VooService, aeronaves, aeropor
                 init();
             },
             function error(response) {
-                toastr.warning("Erro ao cadastrar voo!");
+                toastr.warning("Erro ao cadastrar voo! Todos os campos são obrigatórios. Verifique e tente novamente.");
             });
     }
 
