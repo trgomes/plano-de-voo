@@ -18,24 +18,24 @@ app.service('AeronaveService', ['$http', 'config', function ($http, config) {
     }
 
 
-    this.addAeronave = function (matricula, tipo) {
+    this.addAeronave = function (aeronave) {
         return $http({
             method: 'POST',
             url: baseUri + '/aeronaves',
             data: {
-                matricula: matricula,
-                tipo: tipo
+                matricula: aeronave.matricula,
+                tipo: aeronave.tipo
             }
         });
     }
 
-    this.updateAeronave = function (id, matricula, tipo) {
+    this.updateAeronave = function (aeronave) {
         return $http({
-            method: 'PATCH',
-            url: baseUri + '/aeronaves/' + id,
+            method: 'PUT',
+            url: baseUri + '/aeronaves/' + aeronave.id,
             data: {
-                matricula: numero,
-                tipo: data
+                matricula: aeronave.matricula,
+                tipo: aeronave.tipo
             }
         });
     }

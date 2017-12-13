@@ -4,7 +4,7 @@ app.config(function ($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
 
     $routeProvider
-        //Rotas crud voos
+        //Rota crud voos
         .when('/voos', {
             controller: 'VooController',
             templateUrl: 'views/voos/index.html',
@@ -16,30 +16,18 @@ app.config(function ($routeProvider, $locationProvider) {
                     return AeroportoService.getAllAeroportos();
                 }
             }
-        })
-        .when('/voos/cadastrar', {
-            controller: 'VooController',
-            controllerAs: 'vc',
-            templateUrl: 'views/voos/cadastrar.html'
-        })
-        .when('/voos/alterar/:id', {
-            controller: 'VooController',
-            templateUrl: 'views/voos/alterar.html'
-        })
-        .when('/voos/excluir/:id', {
-            controller: 'VooController',
-            templateUrl: 'views/voos/excluir.html'
-        })
-        //Rotas crud aeronaves
+        })        
+        //Rota crud aeronaves
         .when('/aeronaves', {
             controller: 'AeronaveController',
             templateUrl: 'views/aeronaves/index.html'
         })
-        //Rotas crud aeronaves
+        //Rotas crud aeroportos
         .when('/aeroportos', {
             controller: 'AeroportoController',
             templateUrl: 'views/aeroportos/index.html'
         })
+        //Redirecionamento caso a rota nao exista
         .otherwise({
             redirectTo: '/voos'
         });

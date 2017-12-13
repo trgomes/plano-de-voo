@@ -10,7 +10,7 @@ app.service('AeroportoService', ['$http', 'config', function ($http, config) {
     }
 
 
-    this.getAeroporto = function getAeroporto(id) {
+    this.getAeroporto = function (id) {
         return $http({
             method: 'GET',
             url: baseUri + '/aeroportos/' + id
@@ -18,28 +18,28 @@ app.service('AeroportoService', ['$http', 'config', function ($http, config) {
     }
 
 
-    this.addAeroporto = function addAeroporto(matricula, tipo) {
+    this.addAeroporto = function (aeroporto) {
         return $http({
             method: 'POST',
             url: baseUri + '/aeroportos',
             data: {
-                nome: nome
+                nome: aeroporto.nome
             }
         });
     }
 
-    this.updateAeroporto = function updateAeroporto(id, nome) {
+    this.updateAeroporto = function (aeroporto) {
         return $http({
-            method: 'PATCH',
-            url: baseUri + '/aeroportos/' + id,
+            method: 'PUT',
+            url: baseUri + '/aeroportos/' + aeroporto.id,
             data: {
-                nome: numero
+                nome: aeroporto.nome
             }
         });
     }
 
 
-    this.deleteAeroporto = function deleteAeroporto(id) {
+    this.deleteAeroporto = function (id) {
         return $http({
             method: 'DELETE',
             url: baseUri + '/aeroporto/' + id,

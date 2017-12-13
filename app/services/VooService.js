@@ -10,10 +10,10 @@ app.service('VooService', ['$http', 'config', function ($http, config) {
     }
 
 
-    this.getVoo = function getVoo(vooId) {
+    this.getVoo = function getVoo(id) {
         return $http({
             method: 'GET',
-            url: baseUri + '/voos/' + vooId
+            url: baseUri + '/voos/' + id
         });
     }
 
@@ -27,7 +27,7 @@ app.service('VooService', ['$http', 'config', function ($http, config) {
         });
     }
 
-    this.updateVoo = function updateVoo(voo) {
+    this.updateVoo = function updateVoo(voo) {        
         return $http({
             method: 'PUT',
             url: baseUri + '/voos/' + voo.id,
@@ -36,17 +36,17 @@ app.service('VooService', ['$http', 'config', function ($http, config) {
                 "data": voo.data,
                 "hora": voo.hora,
                 "aeronave_id": voo.aeronave_id,
-                "origem_id": voo.aeronave_id,
+                "origem_id": voo.origem_id,
                 "destino_id": voo.destino_id
             }
         });
     }
 
 
-    this.deleteVoo = function deleteVoo(vooId) {
+    this.deleteVoo = function deleteVoo(id) {
         return $http({
             method: 'DELETE',
-            url: baseUri + '/voos/' + vooId,
+            url: baseUri + '/voos/' + id,
         })
     }
 
