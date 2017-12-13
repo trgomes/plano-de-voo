@@ -2,26 +2,24 @@
 <div class="modal fade" id="modalExcluir" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">                
+            <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title">Excluir voo</h4>
+                <h4 class="modal-title">Excluir Aeronave</h4>
             </div>
             <div class="modal-body">
-                <h3>Tem certeza que deseja excluir o voo
-                    <b>{{voo.id}}</b>?
-                </h3>
-                <p>Número: {{voo.numero}}</p>
-                <p>Data: {{voo.data}}</p>
-                <p>Hora: {{voo.hora}}</p>
-                <p>Origem: {{voo.origem}}</p>
-                <p>Destino: {{voo.destino}}</p>
-
+                <h3>Tem certeza que deseja excluir a aeronave
+                    <b>{{aeronave.id}}</b>?</h3>
+                <p>Matrícula: {{aeronave.matricula}}</p>
+                <p>Tipo: {{aeronave.tipo}}</p>
+                <p class="text-danger">
+                    <b>OBS.: Todos os voos associados a ela tbm serão excluídos!</b>
+                </p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" ng-click="deleteVoo(voo.id)">Excluir</button>
+                <button type="button" class="btn btn-primary" ng-click="deleteAeronave(aeronave.id)">Excluir</button>
             </div>
         </div>
         <!-- /.modal-content -->

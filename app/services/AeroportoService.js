@@ -42,7 +42,7 @@ app.service('AeroportoService', ['$http', 'config', function ($http, config) {
     this.deleteAeroporto = function (id) {
         return $http({
             method: 'DELETE',
-            url: baseUri + '/aeroporto/' + id,
+            url: baseUri + '/aeroportos/' + id,
         })
     }
 

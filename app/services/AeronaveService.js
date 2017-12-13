@@ -13,7 +13,7 @@ app.service('AeronaveService', ['$http', 'config', function ($http, config) {
     this.getAeronave = function (id) {
         return $http({
             method: 'GET',
-            url: baseUri + '/aeronave/' + id
+            url: baseUri + '/aeronaves/' + id
         });
     }
 
@@ -30,6 +30,9 @@ app.service('AeronaveService', ['$http', 'config', function ($http, config) {
     }
 
     this.updateAeronave = function (aeronave) {
+
+        console.log(aeronave);
+
         return $http({
             method: 'PUT',
             url: baseUri + '/aeronaves/' + aeronave.id,
@@ -41,10 +44,10 @@ app.service('AeronaveService', ['$http', 'config', function ($http, config) {
     }
 
 
-    this.deleteAeronave = function (id) {
+    this.deleteAeronave = function (id) {        
         return $http({
             method: 'DELETE',
-            url: baseUri + '/aeronave/' + id,
+            url: baseUri + '/aeronaves/' + id,
         })
     }
 

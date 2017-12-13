@@ -56,7 +56,7 @@ app.controller('AeronaveController', function ($scope, AeronaveService) {
 
 
     $scope.updateAeronave = function (aeronave) {
-        AeronaveService.updateVoo(aeronave)
+        AeronaveService.updateAeronave(aeronave)
             .then(function success(response) {
                 toastr.success("Aeronave alterada com sucesso!");
                 modalClose("#modalEditar");

@@ -1,36 +1,42 @@
 <div class="row">
     <div class="panel panel-info">
         <div class="panel-heading text-right">
-            <a class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
-                <i class="fa fa-plus"></i> Nova aeronave
-            </a>
+            <div class="row">
+                <div class="col-lg-6">
+                    <input type="text" class="form-control " ng-model="filter.matricula" value="" placeholder="Pesquisar matrícula..." />
+                </div>
+                <div class="col-lg-6">
+                    <a class="btn btn-success btn-lg" ng-click="modalCadastrar(voo)">
+                        <i class="fa fa-plus"></i> Nova aeronave
+                    </a>
+                </div>
+            </div>
         </div>
         <div class="panel-body">
+
+            <div class="alert alert-info" ng-show="message">{{message}}</div>
+
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th class="text-center">#</th>
                         <th class="text-center">Matrícula</th>
-                        <th class="text-center">Tipo</th>
+                        <th class="text-center">Tipo <a class="btn btn-xs btn-success" title="Click aqui para adicionar um novo tipo de aeronave"><i class="fa fa-plus"></i></a></th>
                         <th class="text-center"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td colspan="4">
-                            <input type="text" class="form-control " ng-model="filter.matricula" value="" placeholder="Pesquisar matrícula..." />
-                        </td>
-                    </tr>
+
                     <tr ng-repeat="aeronave in aeronaves | filter: filter:strict">
                         <td class="text-center">{{ aeronave.id }}</td>
-                        <td class="text-center">{{ aeronave.matricula }}</td>
-                        <td class="text-center">{{ aeronave.tipo }}</td>
+                        <td class="text-center">{{ aeronave.matricula | uppercase }}</td>
+                        <td class="text-center">{{ aeronave.tipo | uppercase }}</td>
                         <td class="text-center">
                             <div class="btn-group">
-                                <a href="/plano-de-voo/public/aeronaves/alteracao/{{ aeronave.id }}" class="btn btn-group btn-default btn-sm">
+                                <a class="btn btn-group btn-default btn-sm" title="Alterar aeronave" ng-click="modalEditar(aeronave.id)">
                                     <i class="fa fa-edit"></i>
                                 </a>
-                                <a href="/plano-de-voo/public/aeronaves/exclusao/{{ aeronave.id }}" class="btn btn-group btn-danger btn-sm">
+                                <a class="btn btn-group btn-danger btn-sm" title="Excluir aeronave" ng-click="modalExcluir(aeronave)">
                                     <i class="fa fa-remove"></i>
                                 </a>
                             </div>
@@ -41,4 +47,10 @@
         </div>
     </div>
 </div>
-</div>
+
+<!-- Modal Cadastrar aeronave-->
+<div ng-include="'views/aeronaves/cadastrar.html'"></div>
+<!-- Modal Editar aeronave-->
+<div ng-include="'views/aeronaves/editar.html'"></div>
+<!-- Modal Excluir aeronave-->
+<div ng-include="'views/aeronaves/excluir.html'"></div>

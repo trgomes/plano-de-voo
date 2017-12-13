@@ -33,7 +33,7 @@
                 </thead>
                 <tbody>                    
                     <tr ng-repeat="voo in voos | filter: filter:strict">
-                        <td>{{ voo.id | uppercase }}</td>
+                        <td>{{ voo.id }}</td>
                         <td class="text-center">{{ voo.numero | uppercase }}</td>
                         <td class="text-center">{{ voo.matricula | uppercase }}</td>
                         <td class="text-center">{{ voo.data | date: "dd/MM/yyyy" }} </td>

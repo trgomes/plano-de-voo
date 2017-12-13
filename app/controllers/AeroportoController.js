@@ -4,6 +4,7 @@ app.controller('AeroportoController', function ($scope, AeroportoService) {
         $scope.getAllAeroportos();
         $scope.aeroporto = {};
     }
+    
 
     $scope.getAllAeroportos = function () {
         AeroportoService.getAllAeroportos()
@@ -17,7 +18,7 @@ app.controller('AeroportoController', function ($scope, AeroportoService) {
 
 
     $scope.addAeroporto = function () {
-        AeronaveService.addAeronave($scope.aeroporto)
+        AeroportoService.addAeroporto($scope.aeroporto)
             .then(function success(response) {
                 toastr.success("Aeroporto cadastrada com sucesso");
                 modalClose("#modalCadastrar");

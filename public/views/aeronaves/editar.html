@@ -1,0 +1,34 @@
+<!-- Modal cadastrar voo-->
+<div class="modal fade" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Editar voo</h4>
+            </div>
+            {{aeronave}}
+            <div class="modal-body">
+                <form>
+                    <div class="alert alert-danger" role="alert" ng-show="errorMessage">{{errorMessage}}</div>
+
+                    <div class="form-group">
+                        <label for="matricula">Matrícula</label>
+                        <input type="text" required class="form-control" id="matricula" ng-model="aeronave.matricula" />
+                    </div>
+                    <div class="form-group">
+                        <label for="tipo">Tipo</label>
+                        <input type="text" class="form-control" id="tipo" ng-model="aeronave.tipo" />
+                    </div>                    
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary" ng-click="updateAeronave(aeronave)">Editar</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
