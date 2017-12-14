@@ -32,3 +32,44 @@ app.directive("uiDate", function ($filter) {
         }
     };
 });
+
+
+/* app.directive('uiDate', function () {
+    return {
+        require: 'ngModel',
+        link: function ($scope, element, attrs, ngModelCtrl) {
+            element.mask("00/00/0000");
+            ngModelCtrl.$parsers.unshift(function (value) {
+                if (value.length === 10) {
+                    var data = value.substring(6, 10) + '-' + value.substring(3, 5) + '-' + value.substring(0, 2);
+                }
+                return data;
+            });
+            ngModelCtrl.$formatters.unshift(function (value) {
+
+                return element.masked(value);
+            });
+        }
+    };
+}); */
+
+
+app.directive('uiHour', function () {
+    return {
+        require: 'ngModel',
+        link: function ($scope, element, attrs, ngModelCtrl) {
+            element.mask("99:99");
+            ngModelCtrl.$parsers.unshift(function (value) {
+
+                if (value.length === 5) {
+                    var hour = value.substring(0, 2) + ':' + value.substring(3, 5);
+                }
+
+                return hour;
+            });
+            ngModelCtrl.$formatters.unshift(function (value) {
+                return element.masked(value);
+            });
+        }
+    };
+});

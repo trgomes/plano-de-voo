@@ -9,8 +9,8 @@
                 <h4 class="modal-title">Cadastrar voo</h4>
             </div>            
             <form>
-                <div class="modal-body">
-
+                <div class="modal-body">         
+                    
                     <div class="alert alert-danger" role="alert" ng-show="errorMessage">{{errorMessage}}</div>
 
                     <div class="form-group">
@@ -19,11 +19,11 @@
                     </div>
                     <div class="form-group">
                         <label for="matricula">Data</label>
-                        <input type="text" class="form-control" id="matricula" placeholder="Data do voo" ng-model="voo.data" ui-date />
+                        <input type="text" required class="form-control" id="matricula" placeholder="dd/mm/yyyy" ng-model="voo.data" ui-date />
                     </div>
                     <div class="form-group">
                         <label for="matricula">Hora</label>
-                        <input type="text" class="form-control" id="matricula" placeholder="Hora do voo" ng-model="voo.hora" />
+                        <input type="text" required class="form-control" id="matricula" placeholder="hh:mm" ng-model="voo.hora" ui-hour/>
                     </div>
                     <div class="form-group">
                         <label for="matricula">Aeronave</label>
