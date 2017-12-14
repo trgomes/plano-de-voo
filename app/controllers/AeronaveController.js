@@ -85,6 +85,10 @@ app.controller('AeronaveController', function ($scope, AeronaveService, tipos) {
         angular.element("#modalCadastrar").modal('show');
     }
 
+    $scope.modalCadastrarTipo = function () {        
+        angular.element("#modalCadastrarTipo").modal('show');
+    }
+
     function modalClose(modal) {
         angular.element(modal).modal('hide');
     }

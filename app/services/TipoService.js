@@ -10,4 +10,14 @@ app.service('TipoService', ['$http', 'config', function ($http, config) {
         });
     }
 
+
+    this.addTipo = function (tipo) {            
+        console.log(tipo);
+        return $http({
+            method: 'POST',
+            url: baseUri + '/tipos',
+            data: tipo            
+        });
+    }
+
 }]);

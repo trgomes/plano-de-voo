@@ -1,4 +1,4 @@
-app.controller('VooController', function ($scope, VooService, aeronaves, aeroportos, $location) {
+app.controller('VooController', function ($scope, VooService, aeronaves, aeroportos) {
 
     $scope.aeronaves = aeronaves.data; // Popula o select aeronaves
     $scope.aeroportos = aeroportos.data; // Popula o selec aeroportos   

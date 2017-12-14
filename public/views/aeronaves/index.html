@@ -21,7 +21,7 @@
                     <tr>
                         <th class="text-center">#</th>
                         <th class="text-center">Matrícula</th>
-                        <th class="text-center">Tipo <a class="" title="Click aqui para adicionar um novo tipo de aeronave"><i class="fa fa-plus"></i></a></th>
+                        <th class="text-center">Tipo <a class="btn" title="Click aqui para adicionar um novo tipo de aeronave" ng-click="modalCadastrarTipo()"><i class="fa fa-plus"></i></a></th>
                         <th class="text-center"></th>
                     </tr>
                 </thead>
@@ -54,3 +54,5 @@
 <div ng-include="'views/aeronaves/editar.html'"></div>
 <!-- Modal Excluir aeronave-->
 <div ng-include="'views/aeronaves/excluir.html'"></div>
+<div ng-include="'views/tiposAeronaves/cadastrar.html'"></div>
+
