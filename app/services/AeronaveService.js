@@ -38,7 +38,7 @@ app.service('AeronaveService', ['$http', 'config', function ($http, config) {
             url: baseUri + '/aeronaves/' + aeronave.id,
             data: {
                 matricula: aeronave.matricula,
-                tipo: aeronave.tipo
+                tipo_id: aeronave.tipo_id
             }
         });
     }

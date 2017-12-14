@@ -1,5 +1,6 @@
-app.controller('AeronaveController', function ($scope, AeronaveService) {
+app.controller('AeronaveController', function ($scope, AeronaveService, tipos) {
 
+    $scope.tipos = tipos.data;
 
     function init() {
         $scope.getAllAeronaves();

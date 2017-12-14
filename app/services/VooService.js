@@ -2,7 +2,7 @@ app.service('VooService', ['$http', 'config', function ($http, config) {
     
     var baseUri = config.baseUri;
 
-    this.getAllVoos = function getAllVoos() {
+    this.getAllVoos = function () {
         return $http({
             method: 'GET',
             url: baseUri + '/voos'
@@ -10,7 +10,7 @@ app.service('VooService', ['$http', 'config', function ($http, config) {
     }
 
 
-    this.getVoo = function getVoo(id) {
+    this.getVoo = function (id) {
         return $http({
             method: 'GET',
             url: baseUri + '/voos/' + id
@@ -18,7 +18,7 @@ app.service('VooService', ['$http', 'config', function ($http, config) {
     }
 
 
-    this.addVoo = function addVoo(voo) {            
+    this.addVoo = function (voo) {            
         console.log(voo);
         return $http({
             method: 'POST',
@@ -27,7 +27,7 @@ app.service('VooService', ['$http', 'config', function ($http, config) {
         });
     }
 
-    this.updateVoo = function updateVoo(voo) {        
+    this.updateVoo = function (voo) {        
         return $http({
             method: 'PUT',
             url: baseUri + '/voos/' + voo.id,
@@ -43,7 +43,7 @@ app.service('VooService', ['$http', 'config', function ($http, config) {
     }
 
 
-    this.deleteVoo = function deleteVoo(id) {
+    this.deleteVoo = function (id) {
         return $http({
             method: 'DELETE',
             url: baseUri + '/voos/' + id,

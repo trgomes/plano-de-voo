@@ -6,9 +6,9 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title">Editar voo</h4>
+                <h4 class="modal-title">Editar aeronave</h4>
             </div>
-            {{aeronave}}
+            
             <div class="modal-body">
                 <form>
                     <div class="alert alert-danger" role="alert" ng-show="errorMessage">{{errorMessage}}</div>
@@ -18,9 +18,12 @@
                         <input type="text" required class="form-control" id="matricula" ng-model="aeronave.matricula" />
                     </div>
                     <div class="form-group">
-                        <label for="tipo">Tipo</label>
-                        <input type="text" class="form-control" id="tipo" ng-model="aeronave.tipo" />
-                    </div>                    
+                        <label for="tipo">Tipo</label>                        
+                        <select class="form-control" ng-model="aeronave.tipo_id">
+                            <option value="">Selecione o tipo da aeronave</option>
+                            <option ng-repeat="tipo in tipos" value="{{tipo.id}}" ng-selected="aeronave.tipo_id == tipo.id"> {{tipo.tipo}}</option>
+                        </select>
+                    </div>
                 </form>
             </div>
             <div class="modal-footer">

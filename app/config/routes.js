@@ -20,7 +20,12 @@ app.config(function ($routeProvider, $locationProvider) {
         //Rota crud aeronaves
         .when('/aeronaves', {
             controller: 'AeronaveController',
-            templateUrl: 'views/aeronaves/index.html'
+            templateUrl: 'views/aeronaves/index.html',
+            resolve: {
+                tipos: function(TipoService){
+                    return TipoService.getAllTipos();
+                }
+            }
         })
         //Rotas crud aeroportos
         .when('/aeroportos', {
