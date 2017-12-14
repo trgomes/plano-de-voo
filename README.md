@@ -22,13 +22,14 @@ Seguem  algumas opções:
 - Apache
 - http-server (neste caso você deverá ter o npm instalado)
 
-Agora, se preferir e quiser rodar o sistema completo, localemente, seguem os passos:
+Agora, se preferir e quiser rodar o sistema completo, localmente, seguem os passos:
 
 Requisitos
 ------------
 - PHP 7 - Definido no path da máquina para execução em linha de comando
 - Mysql 5.4 ou superior
 - Servidor Apache
+
 ***obs.: Se preferir instale toda stack de uma só vez, utilizando o XAMP, WAMP server... De acordo com sua preferência.***
 
 Instalação da API ou Serviço (como preferir)
@@ -80,10 +81,10 @@ O modelo de dados definido para o projeto foi o seguinte:
 
 
 ### Código fonte: 
-Repositório: [https://github.com/trgomes/api-rest-pv](https://github.com/trgomes/api-rest-pv)
-Models: [https://github.com/trgomes/api-rest-pv/tree/master/app](https://github.com/trgomes/api-rest-pv/tree/master/app)
-Controllers: [https://github.com/trgomes/api-rest-pv/tree/master/app/Http/Controllers](https://github.com/trgomes/api-rest-pv/tree/master/app/Http/Controllers)
-Routs: [https://github.com/trgomes/api-rest-pv/blob/master/routes/api.php](https://github.com/trgomes/api-rest-pv/blob/master/routes/api.php)
+1)  Repositório: [https://github.com/trgomes/api-rest-pv](https://github.com/trgomes/api-rest-pv)
+2)  Models: [https://github.com/trgomes/api-rest-pv/tree/master/app](https://github.com/trgomes/api-rest-pv/tree/master/app)
+3)  Controllers: [https://github.com/trgomes/api-rest-pv/tree/master/app/Http/Controllers](https://github.com/trgomes/api-rest-pv/tree/master/app/Http/Controllers)
+4)  Routs: [https://github.com/trgomes/api-rest-pv/blob/master/routes/api.php](https://github.com/trgomes/api-rest-pv/blob/master/routes/api.php)
 
 **2 - CLIENT - ANGULAR**
 
