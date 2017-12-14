@@ -26,7 +26,6 @@ app.controller('VooController', function ($scope, VooService, aeronaves, aeropor
         /* if ($scope.voo.origem === $scope.voo.destino) {
             $scope.errorMessage = "Ops! O aeroporto de origem não pode ser igual ao de destino.";
         } */
-
         VooService.addVoo($scope.voo)
             .then(function success(response) {
                 toastr.success("Voo cadastrado com sucesso");
