@@ -1,2 +1,5 @@
 #Procfile Heroku
 Procfile
+
+# Bower dependency directory (https://bower.io/)
+bower_components
