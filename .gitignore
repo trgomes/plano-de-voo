@@ -2,4 +2,7 @@
 Procfile
 
 # Bower dependency directory (https://bower.io/)
-bower_components
+#bower_components
+
+#vscode
+.vscode
