@@ -1,50 +1,61 @@
-app.service('AeroportoService', ['$http', 'config', function ($http, config) {
+(function () {
+    'use strict';
 
-    var baseUri = config.baseUri;
+    angular
+        .module('app')
+        .service('AeroportoService', AeroportoService);
 
-    this.getAllAeroportos = function () {
-        return $http({
-            method: 'GET',
-            url: baseUri + '/aeroportos'
-        });
-    }
+    AeroportoService.$inject = ['$http', 'config']
 
+    function AeroportoService($http, config) {
 
-    this.getAeroporto = function (id) {
-        return $http({
-            method: 'GET',
-            url: baseUri + '/aeroportos/' + id
-        });
-    }
+        var baseUri = config.baseUri;
 
-
-    this.addAeroporto = function (aeroporto) {
-        return $http({
-            method: 'POST',
-            url: baseUri + '/aeroportos',
-            data: {
-                nome: aeroporto.nome
-            }
-        });
-    }
-
-    this.updateAeroporto = function (aeroporto) {
-        return $http({
-            method: 'PUT',
-            url: baseUri + '/aeroportos/' + aeroporto.id,
-            data: {
-                nome: aeroporto.nome
-            }
-        });
-    }
+        this.getAllAeroportos = function () {
+            return $http({
+                method: 'GET',
+                url: baseUri + '/aeroportos'
+            });
+        }
 
 
-    this.deleteAeroporto = function (id) {
-        return $http({
-            method: 'DELETE',
-            url: baseUri + '/aeroportos/' + id,
-        })
-    }
+        this.getAeroporto = function (id) {
+            return $http({
+                method: 'GET',
+                url: baseUri + '/aeroportos/' + id
+            });
+        }
 
 
-}]);
+        this.addAeroporto = function (aeroporto) {
+            return $http({
+                method: 'POST',
+                url: baseUri + '/aeroportos',
+                data: {
+                    nome: aeroporto.nome
+                }
+            });
+        }
+
+        this.updateAeroporto = function (aeroporto) {
+            return $http({
+                method: 'PUT',
+                url: baseUri + '/aeroportos/' + aeroporto.id,
+                data: {
+                    nome: aeroporto.nome
+                }
+            });
+        }
+
+
+        this.deleteAeroporto = function (id) {
+            return $http({
+                method: 'DELETE',
+                url: baseUri + '/aeroportos/' + id,
+            })
+        }
+
+
+    };
+
+})();

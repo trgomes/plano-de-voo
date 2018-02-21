@@ -1,104 +1,114 @@
-app.controller('VooController', function ($scope, VooService, aeronaves, aeroportos) {
+(function () {
+    'use strict';
 
-    $scope.aeronaves = aeronaves.data; // Popula o select aeronaves
-    $scope.aeroportos = aeroportos.data; // Popula o selec aeroportos   
+    angular.module('app')
+        .controller('VooController', VooController);
 
-    /* $scope.voo = {};  */
+            VooController.$inject = ['$scope', 'VooService', 'aeronaves', 'aeroportos']
 
-    function init() {
-        $scope.getAllVoos();
-        $scope.voo = {};
-    }
+            function VooController($scope, VooService, aeronaves, aeroportos){
 
-    $scope.getAllVoos = function () {
-        VooService.getAllVoos()
-            .then(function success(response) {
-                $scope.voos = response.data;
-            },
-            function error(response) {
-                $scope.message = 'Não foi encontrado nenhum voo cadastrado na base de dados. Comece cadastrando as aeronaves e os aeroportos';
-            });
-    }
+            var vm = this;
 
+            $scope.aeronaves = aeronaves.data; // Popula o select aeronaves
+            $scope.aeroportos = aeroportos.data; // Popula o selec aeroportos  
+            
+            function init() {
+                $scope.getAllVoos();
+                $scope.voo = {};
+            }
 
-    $scope.addVoo = function () {
-
-        /* if ($scope.voo.origem === $scope.voo.destino) {
-            $scope.errorMessage = "Ops! O aeroporto de origem não pode ser igual ao de destino.";
-        } */
-        VooService.addVoo($scope.voo)
-            .then(function success(response) {
-                toastr.success("Voo cadastrado com sucesso");
-                modalClose("#modalCadastrar");
-                $scope.errorMessage = '';
-                init();
-            },
-            function error(response) {
-                toastr.warning("Erro ao cadastrar voo! Todos os campos são obrigatórios. Verifique e tente novamente.");
-            });
-
-    }
+            $scope.getAllVoos = function () {
+                VooService.getAllVoos()
+                    .then(function success(response) {
+                        $scope.voos = response.data;
+                    },
+                        function error(response) {
+                            $scope.message = 'Não foi encontrado nenhum voo cadastrado na base de dados. Comece cadastrando as aeronaves e os aeroportos';
+                        });
+            }
 
 
-    $scope.getVoo = function (id) {
-        VooService.getVoo(id)
-            .then(function success(response) {
-                $scope.voo = response.data;
-            },
-            function error(response) {
-                toastr.warning("Erro ao consultar voo! ");
-            });
-    }
+            $scope.addVoo = function () {
+
+                /* if ($scope.voo.origem === $scope.voo.destino) {
+                    $scope.errorMessage = "Ops! O aeroporto de origem não pode ser igual ao de destino.";
+                } */
+                VooService.addVoo($scope.voo)
+                    .then(function success(response) {
+                        toastr.success("Voo cadastrado com sucesso");
+                        modalClose("#modalCadastrar");
+                        $scope.errorMessage = '';
+                        init();
+                    },
+                        function error(response) {
+                            toastr.warning("Erro ao cadastrar voo! Todos os campos são obrigatórios. Verifique e tente novamente.");
+                        });
+
+            }
 
 
-    $scope.deleteVoo = function (id) {
-        VooService.deleteVoo(id)
-            .then(function success(response) {
-                toastr.success("Voo excluido com sucesso!");
-                modalClose("#modalExcluir");
-                init();
-            },
-            function error(response) {
-                toastr.warning("Erro ao tentar excluir voo! ");
-            });
-    }
+            $scope.getVoo = function (id) {
+                VooService.getVoo(id)
+                    .then(function success(response) {
+                        $scope.voo = response.data;
+                    },
+                        function error(response) {
+                            toastr.warning("Erro ao consultar voo! ");
+                        });
+            }
 
 
-    $scope.updateVoo = function (voo) {
-        VooService.updateVoo(voo)
-            .then(function success(response) {
-                toastr.success("Voo alterado com sucesso!");
-                modalClose("#modalEditar");
-                init();
-            },
-            function error(response) {
-                toastr.warning("Erro ao tentar alterar o voo! Verifique todos os dados e tente novamente. ");
-            });
-    }
+            $scope.deleteVoo = function (id) {
+                VooService.deleteVoo(id)
+                    .then(function success(response) {
+                        toastr.success("Voo excluido com sucesso!");
+                        modalClose("#modalExcluir");
+                        init();
+                    },
+                        function error(response) {
+                            toastr.warning("Erro ao tentar excluir voo! ");
+                        });
+            }
 
 
-    /* Modal */
-    $scope.modalEditar = function (id) {
-        $scope.getVoo(id);
-        $scope.origem = $scope.voo.matriula_id;
-        angular.element("#modalEditar").modal('show');
-    }
+            $scope.updateVoo = function (voo) {
+                VooService.updateVoo(voo)
+                    .then(function success(response) {
+                        toastr.success("Voo alterado com sucesso!");
+                        modalClose("#modalEditar");
+                        init();
+                    },
+                        function error(response) {
+                            toastr.warning("Erro ao tentar alterar o voo! Verifique todos os dados e tente novamente. ");
+                        });
+            }
 
-    $scope.modalExcluir = function (voo) {
-        $scope.voo = voo; //Popula voo
-        angular.element("#modalExcluir").modal('show');
-    }
 
-    $scope.modalCadastrar = function () {
-        $scope.voo = {}; //Limpa o obejto
-        angular.element("#modalCadastrar").modal('show');
-    }
+            /* Modal */
+            $scope.modalEditar = function (id) {
+                $scope.getVoo(id);
+                $scope.origem = $scope.voo.matriula_id;
+                angular.element("#modalEditar").modal('show');
+            }
 
-    function modalClose(modal) {
-        angular.element(modal).modal('hide');
-    }
-    /* /Modal */
+            $scope.modalExcluir = function (voo) {
+                $scope.voo = voo; //Popula voo
+                angular.element("#modalExcluir").modal('show');
+            }
 
-    init();
+            $scope.modalCadastrar = function () {
+                $scope.voo = {}; //Limpa o obejto
+                angular.element("#modalCadastrar").modal('show');
+            }
 
-});
+            function modalClose(modal) {
+                angular.element(modal).modal('hide');
+            }
+            /* /Modal */
+
+            init();
+
+        };
+
+})();
