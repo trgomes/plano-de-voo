@@ -11,7 +11,14 @@
 
         var baseUri = config.baseUri;
 
-        this.getAllAeronaves = function () {
+        this.getAllAeronaves = getAllAeronaves;
+        this.getAeronave = getAeronave;
+        this.addAeronave = addAeronave;
+        this.updateAeronave = updateAeronave;
+        this.deleteAeronave = deleteAeronave;
+
+
+        function getAllAeronaves() {
             return $http({
                 method: 'GET',
                 url: baseUri + '/aeronaves'
@@ -19,7 +26,7 @@
         }
 
 
-        this.getAeronave = function (id) {
+        function getAeronave(id) {
             return $http({
                 method: 'GET',
                 url: baseUri + '/aeronaves/' + id
@@ -27,7 +34,7 @@
         }
 
 
-        this.addAeronave = function (aeronave) {
+        function addAeronave(aeronave) {
             return $http({
                 method: 'POST',
                 url: baseUri + '/aeronaves',
@@ -38,7 +45,7 @@
             });
         }
 
-        this.updateAeronave = function (aeronave) {
+        function updateAeronave(aeronave) {
 
             console.log(aeronave);
 
@@ -53,7 +60,7 @@
         }
 
 
-        this.deleteAeronave = function (id) {
+        function deleteAeronave(id) {
             return $http({
                 method: 'DELETE',
                 url: baseUri + '/aeronaves/' + id,

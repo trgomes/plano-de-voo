@@ -11,13 +11,25 @@
 
         $scope.tipos = tipos.data;
 
+        //Functions
+        $scope.getAllAeronaves = getAllAeronaves;
+        $scope.addAeronave = addAeronave;
+        $scope.getAeronave = getAeronave;
+        $scope.deleteAeronave = deleteAeronave;
+        $scope.updateAeronave = updateAeronave;
+        $scope.modalEditar = modalEditar;
+        $scope.modalExcluir = modalExcluir;
+        $scope.modalCadastrar = modalCadastrar;
+        $scope.modalCadastrarTipo = modalCadastrarTipo;
+
+
         function init() {
-            $scope.getAllAeronaves();
+            getAllAeronaves();
             $scope.aeronave = {};
         }
 
 
-        $scope.getAllAeronaves = function () {
+        function getAllAeronaves() {
             AeronaveService.getAllAeronaves()
                 .then(function success(response) {
                     $scope.aeronaves = response.data;
@@ -28,7 +40,7 @@
         }
 
 
-        $scope.addAeronave = function () {
+        function addAeronave() {
             AeronaveService.addAeronave($scope.aeronave)
                 .then(function success(response) {
                     toastr.success("Aeronave cadastrada com sucesso");
@@ -41,7 +53,7 @@
         }
 
 
-        $scope.getAeronave = function (id) {
+        function getAeronave(id) {
             AeronaveService.getAeronave(id)
                 .then(function success(response) {
                     $scope.aeronave = response.data;
@@ -52,7 +64,7 @@
         }
 
 
-        $scope.deleteAeronave = function (id) {
+         function deleteAeronave(id) {
             AeronaveService.deleteAeronave(id)
                 .then(function success(response) {
                     toastr.success("Aeronave excluída com sucesso!");
@@ -65,7 +77,7 @@
         }
 
 
-        $scope.updateAeronave = function (aeronave) {
+        function updateAeronave(aeronave) {
             AeronaveService.updateAeronave(aeronave)
                 .then(function success(response) {
                     toastr.success("Aeronave alterada com sucesso!");
@@ -79,22 +91,22 @@
 
 
         /* Modal */
-        $scope.modalEditar = function (id) {
+        function modalEditar(id) {
             $scope.getAeronave(id);
             angular.element("#modalEditar").modal('show');
         }
 
-        $scope.modalExcluir = function (aeronave) {
+        function modalExcluir(aeronave) {
             $scope.aeronave = aeronave; //Popula voo
             angular.element("#modalExcluir").modal('show');
         }
 
-        $scope.modalCadastrar = function () {
+        function modalCadastrar() {
             $scope.aeronave = {}; //Limpa o obejto
             angular.element("#modalCadastrar").modal('show');
         }
 
-        $scope.modalCadastrarTipo = function () {
+        function modalCadastrarTipo() {
             angular.element("#modalCadastrarTipo").modal('show');
         }
 

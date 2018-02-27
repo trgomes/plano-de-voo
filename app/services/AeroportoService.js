@@ -11,7 +11,14 @@
 
         var baseUri = config.baseUri;
 
-        this.getAllAeroportos = function () {
+        //Functions
+        this.getAllAeroportos = getAllAeroportos;
+        this.getAeroporto = getAeroporto;
+        this.addAeroporto = addAeroporto;
+        this.updateAeroporto = updateAeroporto;
+        this.deleteAeroporto = deleteAeroporto;
+
+        function getAllAeroportos() {
             return $http({
                 method: 'GET',
                 url: baseUri + '/aeroportos'
@@ -19,7 +26,7 @@
         }
 
 
-        this.getAeroporto = function (id) {
+        function getAeroporto(id) {
             return $http({
                 method: 'GET',
                 url: baseUri + '/aeroportos/' + id
@@ -27,7 +34,7 @@
         }
 
 
-        this.addAeroporto = function (aeroporto) {
+        function addAeroporto(aeroporto) {
             return $http({
                 method: 'POST',
                 url: baseUri + '/aeroportos',
@@ -37,7 +44,7 @@
             });
         }
 
-        this.updateAeroporto = function (aeroporto) {
+        function updateAeroporto(aeroporto) {
             return $http({
                 method: 'PUT',
                 url: baseUri + '/aeroportos/' + aeroporto.id,
@@ -48,7 +55,7 @@
         }
 
 
-        this.deleteAeroporto = function (id) {
+        function deleteAeroporto(id) {
             return $http({
                 method: 'DELETE',
                 url: baseUri + '/aeroportos/' + id,

@@ -9,13 +9,23 @@
 
     function AeroportoController($scope, AeroportoService) {
 
+        $scope.getAllAeroportos = getAllAeroportos;
+        $scope.addAeroporto = addAeroporto;
+        $scope.getAeroporto = getAeroporto;
+        $scope.deleteAeroporto = deleteAeroporto;
+        $scope.updateAeroporto = updateAeroporto;
+        $scope.modalEditar = modalEditar;
+        $scope.modalExcluir = modalExcluir;
+        $scope.modalCadastrar = modalCadastrar;
+
+
         function init() {
-            $scope.getAllAeroportos();
+            getAllAeroportos();
             $scope.aeroporto = {};
         }
 
 
-        $scope.getAllAeroportos = function () {
+        function getAllAeroportos() {
             AeroportoService.getAllAeroportos()
                 .then(function success(response) {
                     $scope.aeroportos = response.data;
@@ -26,7 +36,7 @@
         }
 
 
-        $scope.addAeroporto = function () {
+        function addAeroporto() {
             AeroportoService.addAeroporto($scope.aeroporto)
                 .then(function success(response) {
                     toastr.success("Aeroporto cadastrada com sucesso");
@@ -39,7 +49,7 @@
         }
 
 
-        $scope.getAeroporto = function (id) {
+        function getAeroporto(id) {
             AeroportoService.getAeroporto(id)
                 .then(function success(response) {
                     $scope.aeroporto = response.data;
@@ -50,7 +60,7 @@
         }
 
 
-        $scope.deleteAeroporto = function (id) {
+        function deleteAeroporto(id) {
             AeroportoService.deleteAeroporto(id)
                 .then(function success(response) {
                     toastr.success("Aeroporto excluída com sucesso!");
@@ -63,7 +73,7 @@
         }
 
 
-        $scope.updateAeroporto = function (aeroporto) {
+        function updateAeroporto(aeroporto) {
             AeroportoService.updateAeroporto(aeroporto)
                 .then(function success(response) {
                     toastr.success("Aeroporto alterada com sucesso!");
@@ -77,17 +87,17 @@
 
 
         /* Modal */
-        $scope.modalEditar = function (id) {
+        function modalEditar(id) {
             $scope.getAeroporto(id);
             angular.element("#modalEditar").modal('show');
         }
 
-        $scope.modalExcluir = function (aeroporto) {
+        function modalExcluir(aeroporto) {
             $scope.aeroporto = aeroporto; //Popula voo
             angular.element("#modalExcluir").modal('show');
         }
 
-        $scope.modalCadastrar = function () {
+        function modalCadastrar() {
             $scope.aeroporto = {}; //Limpa o obejto
             angular.element("#modalCadastrar").modal('show');
         }

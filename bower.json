@@ -4,9 +4,9 @@
     "trgomes <trtg10@gmail.com>"
   ],
   "description": "",
-  "main": "",
+  "main": "/public/index.html",
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://trgomes.github.io",
   "ignore": [
     "**/.*",
     "node_modules",

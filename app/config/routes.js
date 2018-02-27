@@ -1,11 +1,12 @@
 (function () {
     'use strict';
-    
-    angular.module('app')
-        .config(function ($routeProvider, $locationProvider) {
+
+    angular
+        .module('app')
+        .config(function ($routeProvider) {
 
             // Utilizando o HTML5 History API
-            $locationProvider.html5Mode(true);
+            //$locationProvider.html5Mode(true);
 
             $routeProvider
                 //Rota crud voos

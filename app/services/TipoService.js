@@ -11,7 +11,11 @@
 
         var baseUri = config.baseUri;
 
-        this.getAllTipos = function () {
+        this.getAllTipos = getAllTipos;
+        this.addTipo = addTipo;
+
+
+        function getAllTipos() {
             return $http({
                 method: 'GET',
                 url: baseUri + '/tipos'
@@ -19,7 +23,7 @@
         }
 
 
-        this.addTipo = function (tipo) {
+        function addTipo(tipo) {
             console.log(tipo);
             return $http({
                 method: 'POST',

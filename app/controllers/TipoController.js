@@ -10,7 +10,12 @@
 
         $scope.tipo = {};
 
-        $scope.addTipo = function () {
+        //Functions
+        $scope.addTipo = addTipo;
+        $scope.modalCadastrarTipo = modalCadastrarTipo;
+
+
+        function addTipo() {
             TipoService.addTipo($scope.tipo)
                 .then(function success(response) {
                     toastr.success("Tipo de aeronave cadastrado com sucesso");
@@ -23,7 +28,7 @@
         }
 
 
-        $scope.modalCadastrarTipo = function () {
+        function modalCadastrarTipo() {
             $scope.tipo = {}; //Limpa o obejto
             angular.element("#modalCadastrarTipo").modal('show');
         }
